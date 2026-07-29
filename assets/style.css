@@ -1,0 +1,263 @@
+/* Moonbrim — brand stylesheet
+   Palette anchored to the lantern-moon logo's own navy (#25395b). */
+
+:root {
+  --navy-deep: #0a0f24;
+  --navy-mid: #131c3d;
+  --navy-logo: #25395b;
+  --indigo: #241f4a;
+  --gold: #f2c879;
+  --gold-soft: #ffe3b3;
+  --blush: #e8a86c;
+  --ink: #eef1f8;
+  --ink-muted: #aab4d4;
+  --line: rgba(242, 200, 121, 0.22);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scrollbar-color: var(--navy-logo) transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(37, 57, 91, 0.55), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(242, 200, 121, 0.06), transparent 55%),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-mid) 45%, var(--indigo) 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+a { color: var(--gold); }
+
+/* ---------- starfield ---------- */
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.6;
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star { animation: none; opacity: 0.5; }
+}
+
+/* ---------- layout shells ---------- */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8vh 1.5rem 4rem;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6vh 1.25rem 3rem;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-header .logo {
+  width: 84px;
+  margin-bottom: 0.75rem;
+}
+
+.page-header .wordmark {
+  font-size: 1.6rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2.25rem clamp(1.25rem, 5vw, 3rem);
+  backdrop-filter: blur(6px);
+}
+
+.card h1 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  color: var(--gold-soft);
+  margin-top: 0;
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.card p, .card li {
+  color: var(--ink-muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.card .effective-date {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.card ul { padding-left: 1.2rem; }
+
+.card a { text-decoration: underline; text-underline-offset: 2px; }
+.card a:hover { color: var(--gold-soft); }
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--gold); }
+
+/* ---------- hero content ---------- */
+.logo {
+  width: clamp(130px, 24vw, 190px);
+  height: auto;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 28px rgba(242, 200, 121, 0.35));
+}
+
+.wordmark {
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  margin: 0 0 0.75rem;
+  background: linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 60%, var(--blush) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  max-width: 34rem;
+  margin: 0 0 0.6rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.subtagline {
+  max-width: 30rem;
+  color: var(--ink-muted);
+  margin: 0 0 2.2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ---------- socials ---------- */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  max-width: 34rem;
+  margin-bottom: 2.4rem;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.social-pill svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--gold-soft);
+  flex-shrink: 0;
+}
+
+.social-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(242, 200, 121, 0.55);
+  background: rgba(242, 200, 121, 0.08);
+  box-shadow: 0 6px 24px rgba(242, 200, 121, 0.14);
+}
+
+.contact {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+}
+
+.contact a { color: var(--gold-soft); text-decoration: none; }
+.contact a:hover { text-decoration: underline; }
+
+/* ---------- footer ---------- */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.75rem 1rem 2.25rem;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--line);
+  width: 100%;
+  max-width: 680px;
+}
+
+footer a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  margin: 0 0.35rem;
+}
+
+footer a:hover { color: var(--gold); text-decoration: underline; }
+
+.hero footer, .page footer {
+  margin-top: auto;
+}

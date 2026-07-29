@@ -261,3 +261,51 @@ footer a:hover { color: var(--gold); text-decoration: underline; }
 .hero footer, .page footer {
   margin-top: auto;
 }
+
+/* ---------- code box (tiktok-callback) ---------- */
+.code-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.code-box code {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(0.95rem, 2.6vw, 1.15rem);
+  color: var(--gold-soft);
+}
+
+.code-box--error code {
+  color: var(--blush);
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(242, 200, 121, 0.12);
+  color: var(--ink);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.copy-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(242, 200, 121, 0.22);
+}
+
+.card .hint {
+  font-size: 0.9rem;
+  font-style: italic;
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok authorization — Moonbrim</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0f24">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="canonical" href="https://moonbrim.com/tiktok-callback">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<main class="page">
+  <div class="page-header">
+    <a href="/"><img class="logo" src="/assets/logo.png" alt="Moonbrim lantern-moon mark" width="84" height="84"></a>
+    <h2 class="wordmark">Moonbrim</h2>
+  </div>
+
+  <div class="card">
+    <h1 id="heading">Connecting TikTok&hellip;</h1>
+    <p id="lede">One moment &mdash; reading the authorization response.</p>
+
+    <div id="success-block" hidden>
+      <p>TikTok approved the connection. Copy the code below and paste it back into
+      the terminal that printed the authorize link.</p>
+      <div class="code-box">
+        <code id="code-value"></code>
+        <button id="copy-btn" class="copy-btn" type="button">Copy</button>
+      </div>
+      <p class="hint">This code is single-use and expires quickly &mdash; paste it into
+      the CLI prompt now. If it stops working, run <code>--auth</code> again for a
+      fresh link.</p>
+    </div>
+
+    <div id="error-block" hidden>
+      <p>TikTok did not approve the connection.</p>
+      <div class="code-box code-box--error">
+        <code id="error-value"></code>
+      </div>
+      <p class="hint">Go back to the terminal, re-run
+      <code>python3 pipeline/publish_tiktok.py --auth</code>, and try again. If this
+      keeps happening, double-check <code>TIKTOK_CLIENT_KEY</code> /
+      <code>TIKTOK_CLIENT_SECRET</code> and that this exact URL is registered as the
+      app's redirect URI.</p>
+    </div>
+
+    <div id="empty-block" hidden>
+      <p>No authorization code or error was found in this page's URL. If you opened
+      this link directly (not via a TikTok redirect), go back to the terminal and
+      start with <code>python3 pipeline/publish_tiktok.py --auth</code>.</p>
+    </div>
+
+    <a class="back-link" href="/">&larr; Back to Moonbrim</a>
+  </div>
+
+  <footer>
+    &copy; 2026 Moonbrim &middot; <a href="/">Home</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a>
+  </footer>
+</main>
+
+<script src="/assets/stars.js" defer></script>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get("code");
+  var error = params.get("error");
+  var errorDescription = params.get("error_description");
+
+  var heading = document.getElementById("heading");
+  var lede = document.getElementById("lede");
+
+  function show(id) {
+    document.getElementById(id).hidden = false;
+  }
+
+  if (code) {
+    heading.textContent = "TikTok connected";
+    lede.textContent = "Paste this code into the waiting terminal prompt.";
+    document.getElementById("code-value").textContent = code;
+    show("success-block");
+
+    var copyBtn = document.getElementById("copy-btn");
+    copyBtn.addEventListener("click", function () {
+      navigator.clipboard.writeText(code).then(function () {
+        copyBtn.textContent = "Copied!";
+        setTimeout(function () { copyBtn.textContent = "Copy"; }, 2000);
+      }, function () {
+        copyBtn.textContent = "Select + copy manually";
+      });
+    });
+  } else if (error) {
+    heading.textContent = "Authorization failed";
+    lede.textContent = "TikTok returned an error instead of a code.";
+    document.getElementById("error-value").textContent =
+      error + (errorDescription ? ": " + errorDescription : "");
+    show("error-block");
+  } else {
+    heading.textContent = "Nothing to show";
+    lede.textContent = "";
+    show("empty-block");
+  }
+})();
+</script>
+</body>
+</html>

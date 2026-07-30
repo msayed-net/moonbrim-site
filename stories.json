@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T19:02:32.068649+00:00",
+  "generated_at": "2026-07-30T22:00:27.270398+00:00",
   "stories": [
     {
       "slug": "backpack-brave",
@@ -10,10 +10,20 @@
       "story_url": "/stories/backpack-brave/",
       "podcast_url": "/podcast/episodes/backpack-brave.m4a",
       "premiered_at": "2026-07-30T16:42:08+00:00"
+    },
+    {
+      "slug": "little-cloud",
+      "title": "The Little Cloud Who Could Not Rain",
+      "tease": "In a valley that forgot the sound of rain, one small cloud is too little to help — until the night her heart grows heavier than any storm. A gentle summer bedtime story about feeling too small, for little dreamers and the grown-ups watching with them.",
+      "thumb": "/stories/little-cloud/thumb.jpg",
+      "video_id": "LExCy6g9D04",
+      "story_url": "/stories/little-cloud/",
+      "podcast_url": null,
+      "premiered_at": "2026-07-30T10:59:38+00:00"
     }
   ],
   "teaser": {
-    "title": "The Little Cloud Who Could Not Rain",
-    "scheduled_for": "2026-07-30T22:00:00+00:00"
+    "title": "The Moth Who Was Afraid of the Dark",
+    "scheduled_for": "2026-07-31T12:00:00+00:00"
   }
 }

@@ -1,0 +1,16 @@
+# Cloudflare Pages response headers. See:
+# https://developers.cloudflare.com/pages/configuration/headers/
+#
+# /stories/* pages are pruned in place whenever a job's YouTube post is no
+# longer exactly "live" (see pipeline/site_gen.py's PRIVACY GATE). Pages'
+# default edge cache (observed: public, s-maxage=604800 — 7 days) purges
+# reliably for paths that CHANGE between deploys, but a path that is REMOVED
+# entirely (pruned) can keep serving a stale 200 from edge cache until that
+# TTL expires, since there is no new asset at that URL for the deploy-time
+# purge to key off. A short cache lifetime here bounds how long a pruned
+# story page can still leak from cache after this file first ships — down
+# from up to 7 days to a few minutes — without needing an explicit
+# zone-level cache purge (this API token is not granted that permission; see
+# the deploy report for the two entries this shipped with still stale).
+/stories/*
+  Cache-Control: public, max-age=300, s-maxage=300

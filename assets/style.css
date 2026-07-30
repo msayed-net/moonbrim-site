@@ -12,6 +12,12 @@
   --ink: #eef1f8;
   --ink-muted: #aab4d4;
   --line: rgba(242, 200, 121, 0.22);
+  /* time-aware sky + craft layer additions (2026-07-30) — see assets/experience.css
+     and the /assets/stars.js "site shell" for how these are used. Both new hues are
+     scoped to a single, narrow job each so the lantern-gold accent stays the one
+     recurring signature color. */
+  --ember: #ff9d5c;   /* dusk-only gradient stop — embers of sunset, never a UI color */
+  --firefly: #d9f27a; /* firefly glow only — a rare after-dark detail, not an accent */
 }
 
 * { box-sizing: border-box; }
@@ -77,8 +83,24 @@ a { color: var(--gold); }
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  --glow-x: 50%;
+  --glow-y: 15%;
   text-align: center;
   padding: 8vh 1.5rem 4rem;
+}
+
+/* Cursor/touch glow that swells toward the pointer near the hero — driven
+   by --glow-x/--glow-y, set in assets/stars.js's heroGlow(). Negative
+   z-index keeps it within the .hero stacking context, behind its content,
+   without escaping below the sitewide .stars layer. Skipped by the JS
+   entirely under reduced-motion, so it stays at its centered default. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle 320px at var(--glow-x) var(--glow-y), rgba(242, 200, 121, 0.12), transparent 70%);
 }
 
 .page {
@@ -164,6 +186,17 @@ a { color: var(--gold); }
   height: auto;
   margin-bottom: 1.25rem;
   filter: drop-shadow(0 0 28px rgba(242, 200, 121, 0.35));
+  animation: breathe 5.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 26px rgba(242, 200, 121, 0.32)); }
+  50% { transform: scale(1.035); filter: drop-shadow(0 0 40px rgba(242, 200, 121, 0.55)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo { animation: none; }
 }
 
 .wordmark {
@@ -309,3 +342,359 @@ footer a:hover { color: var(--gold); text-decoration: underline; }
   font-size: 0.9rem;
   font-style: italic;
 }
+
+/* =====================================================================
+   Site-wide "shell" layer — added 2026-07-30. Lives here (not a page-
+   specific stylesheet) because /assets/stars.js is the ONLY script every
+   page on the site loads, including the pipeline-generated /stories/ pages
+   whose <head>/<script> tags this pass cannot hand-edit without a future
+   `site_gen.py` run reverting the edit. Anything that must render on every
+   page — time-of-day sky, the lantern/ambience toggles, the footer moon
+   phase, the Story Sky constellation — is styled here for that reason, and
+   driven by stars.js's "chrome bootstrap". Hero/ritual/grown-ups-only
+   styling lives in assets/experience.css instead, since those pages' <head>
+   is hand-written and fully under this pass's control.
+   ===================================================================== */
+
+/* ---------- eyebrow / label utility (3rd type role, same sans) ---------- */
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+/* ---------- focus visibility, everywhere ---------- */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+audio:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- time-of-day sky buckets ----------
+   Default (no class = "day", 8-17) keeps the existing body background
+   untouched — this is the bedtime brand's baseline, never bright/daytime. */
+html.tod-dusk body {
+  background:
+    radial-gradient(ellipse 75% 55% at 50% 0%, rgba(255, 157, 92, 0.20), transparent 62%),
+    radial-gradient(ellipse 60% 40% at 85% 12%, rgba(242, 200, 121, 0.10), transparent 55%),
+    linear-gradient(180deg, #241a2f 0%, var(--navy-mid) 42%, var(--indigo) 100%);
+}
+
+html.tod-evening body {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(242, 200, 121, 0.13), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(232, 168, 108, 0.07), transparent 55%),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-mid) 45%, var(--indigo) 100%);
+}
+
+html.tod-deep-night body {
+  background:
+    radial-gradient(ellipse 65% 45% at 50% 0%, rgba(37, 57, 91, 0.45), transparent 60%),
+    radial-gradient(ellipse 55% 35% at 85% 12%, rgba(242, 200, 121, 0.035), transparent 55%),
+    linear-gradient(180deg, #060911 0%, #0e1530 45%, #1a1440 100%);
+}
+
+html.tod-dawn body {
+  background:
+    radial-gradient(ellipse 75% 55% at 50% 0%, rgba(255, 227, 179, 0.14), transparent 62%),
+    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(232, 168, 108, 0.07), transparent 55%),
+    linear-gradient(180deg, #2a2440 0%, var(--navy-mid) 45%, var(--indigo) 100%);
+}
+
+body { transition: background 4s ease; }
+
+/* ---------- drifting stars + fireflies (extends .star from stars.js) ---------- */
+.star.drift {
+  animation-name: twinkle, drift;
+  animation-duration: inherit, var(--drift-dur, 40s);
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes drift {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(var(--drift-x, 12px), var(--drift-y, -10px)); }
+  100% { transform: translate(0, 0); }
+}
+
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--firefly);
+  box-shadow: 0 0 6px 2px rgba(217, 242, 122, 0.55), 0 0 14px 4px rgba(217, 242, 122, 0.22);
+  opacity: 0.75;
+  animation: firefly-drift ease-in-out infinite, firefly-glow ease-in-out infinite;
+}
+
+@keyframes firefly-drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(var(--fx1, 10px), var(--fy1, -14px)); }
+  50% { transform: translate(var(--fx2, -8px), var(--fy2, -4px)); }
+  75% { transform: translate(var(--fx3, 6px), var(--fy3, 10px)); }
+}
+
+@keyframes firefly-glow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star.drift { animation: twinkle ease-in-out infinite; animation-duration: inherit; }
+  .firefly { animation: none; opacity: 0.55; }
+}
+
+/* ---------- lantern (lights-off) + ambience toggles ---------- */
+.lantern-toggle,
+.ambience-toggle {
+  position: fixed;
+  z-index: 40;
+  right: 1rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(10, 15, 36, 0.6);
+  backdrop-filter: blur(6px);
+  color: var(--gold-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.lantern-toggle { bottom: 1rem; }
+.ambience-toggle { bottom: 4.35rem; }
+
+.lantern-toggle:hover,
+.ambience-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 200, 121, 0.18);
+}
+
+.lantern-toggle[aria-pressed="true"],
+.ambience-toggle[aria-pressed="true"] {
+  background: rgba(242, 200, 121, 0.2);
+  border-color: rgba(242, 200, 121, 0.55);
+}
+
+.lantern-toggle svg, .ambience-toggle svg { width: 20px; height: 20px; }
+
+/* ---------- lights-off mode ---------- */
+.lights-off-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 32;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 55% at 50% 38%, rgba(9, 12, 28, 0.88), rgba(2, 3, 9, 0.97) 78%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+html.lights-off .lights-off-overlay { opacity: 1; }
+
+.lights-off-moon-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 33;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+html.lights-off .lights-off-moon-wrap { opacity: 1; pointer-events: auto; }
+
+.lights-off-moon-wrap .moon-phase { width: 68px; height: 68px; }
+.lights-off-moon-wrap p { color: var(--ink-muted); font-size: 0.85rem; margin: 0; max-width: 22rem; }
+
+.lights-off-progress {
+  width: min(240px, 60vw);
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.lights-off-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  transition: width 0.25s linear;
+}
+
+html.lights-off .yt-facade { opacity: 0.06; }
+
+/* ---------- moon phase widget (footer, everywhere) ---------- */
+.moon-phase-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.moon-phase {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(242, 200, 121, 0.35));
+}
+
+/* ---------- cloud-drift page transitions ---------- */
+body {
+  opacity: 0;
+  animation: page-enter 0.7s ease forwards;
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+body.page-leaving { animation: page-leave 0.22s ease forwards !important; }
+
+@keyframes page-leave {
+  to { opacity: 0; transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; opacity: 1; transition: none; }
+  body.page-leaving { animation: none; }
+}
+
+/* ---------- Story Sky constellation (/stories/) ---------- */
+#story-sky {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto 2rem;
+}
+
+.sky-star {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sky-star::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.7;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  animation: twinkle ease-in-out infinite;
+  animation-duration: var(--dur, 3s);
+  animation-delay: var(--delay, 0s);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sky-star.is-watched::before {
+  background: var(--gold-soft);
+  box-shadow: 0 0 12px rgba(242, 200, 121, 0.85), 0 0 26px rgba(242, 200, 121, 0.4);
+  opacity: 0.95;
+}
+
+.sky-star:hover::before,
+.sky-star.is-active::before {
+  transform: scale(1.7);
+}
+
+.sky-star:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-star::before { animation: none; opacity: 0.55; }
+  .sky-star.is-watched::before { opacity: 0.95; }
+}
+
+.sky-popup {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  width: min(380px, 92vw);
+  max-height: 72vh;
+  overflow-y: auto;
+  z-index: 50;
+  background: rgba(19, 28, 61, 0.97);
+  border: 1px solid var(--line);
+  border-radius: 20px 20px 0 0;
+  padding: 1.25rem 1.25rem 1.6rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.32s ease;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.sky-popup.is-open { transform: translate(-50%, 0); }
+
+.sky-popup img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.sky-popup .yt-facade { max-width: none; margin: 0 0 0.9rem; aspect-ratio: 16 / 9; }
+.sky-popup .story-audio { max-width: none; }
+
+.sky-popup h3 { margin: 0 0 0.4rem; color: var(--gold-soft); font-size: 1.1rem; }
+.sky-popup p { margin: 0 0 0.9rem; color: var(--ink-muted); font-size: 0.9rem; line-height: 1.5; }
+
+.sky-popup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.sky-popup-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-popup { transition: none; }
+}
+
+/* ---------- "For Grown-ups" footer link, injected by stars.js ---------- */
+footer .grownups-link { white-space: nowrap; }

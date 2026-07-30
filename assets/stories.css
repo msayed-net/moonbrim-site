@@ -75,7 +75,7 @@
   margin: 0 0 1.2rem;
 }
 
-.video-embed {
+.yt-facade {
   position: relative;
   width: 100%;
   max-width: 340px;
@@ -85,14 +85,39 @@
   overflow: hidden;
   border: 1px solid var(--line);
   background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
-.video-embed iframe {
+.yt-facade-thumb {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  object-fit: cover;
+}
+
+.yt-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 15, 36, 0.75);
+  color: var(--gold-soft);
+  cursor: pointer;
+}
+
+.story-audio {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin: 1rem auto;
 }
 
 .platform-buttons {

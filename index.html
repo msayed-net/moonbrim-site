@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Moonbrim — Gentle bedtime stories for the whole family</title>
-<meta name="description" content="Moonbrim makes gentle, cinematic bedtime stories that tuck the whole family in. Watch on YouTube, TikTok, Instagram, Facebook and Pinterest.">
+<meta name="description" content="Moonbrim makes gentle, cinematic bedtime stories that tuck the whole family in. Watch tonight's story, or start the one-more-story ritual.">
 <meta name="theme-color" content="#0a0f24">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -16,6 +16,8 @@
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://moonbrim.com/">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/stories.css">
+<link rel="stylesheet" href="/assets/experience.css">
 </head>
 <body>
 <div class="stars" aria-hidden="true"></div>
@@ -24,7 +26,17 @@
   <img class="logo" src="/assets/logo.png" alt="Moonbrim lantern-moon mark" width="190" height="190">
   <h1 class="wordmark">Moonbrim</h1>
   <p class="tagline">Gentle bedtime stories that tuck the whole family in.</p>
-  <p class="subtagline">Calming, cinematic stories made for little dreamers — and the grown-ups tucking them in. New episodes every week.</p>
+
+  <div id="tonight-story" class="tonight-story">
+    <p class="hint">Tucking in tonight&rsquo;s story&hellip;</p>
+  </div>
+
+  <p id="tonight-teaser" class="tonight-teaser" hidden></p>
+
+  <button id="ritual-start" type="button" class="social-pill ritual-entry">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+    One more story?
+  </button>
 
   <nav class="socials" aria-label="Moonbrim on social media">
     <a class="social-pill" href="/stories/">
@@ -61,5 +73,8 @@
 </main>
 
 <script src="/assets/stars.js" defer></script>
+<script src="/assets/player.js" defer></script>
+<script src="/assets/hero.js" defer></script>
+<script src="/assets/ritual.js" defer></script>
 </body>
 </html>

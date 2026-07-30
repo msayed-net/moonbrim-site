@@ -1,0 +1,227 @@
+/* Moonbrim — experience.css. Hero, ritual and grown-ups-page styling that
+   only needs to exist on hand-written pages this pass controls the <head>
+   of (index.html, /for-grown-ups/). Everything that must also render on
+   generator-owned pages (/stories/*) lives in assets/style.css instead —
+   see the note at the top of that file's "site-wide shell" section. */
+
+/* ---------- Tonight's Story hero card ---------- */
+.tonight-story {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.tonight-story .yt-facade {
+  max-width: 340px;
+  margin: 1.1rem auto 1.25rem;
+}
+
+.tonight-title {
+  font-size: clamp(1.25rem, 4vw, 1.6rem);
+  color: var(--gold-soft);
+  margin: 0 0 0.6rem;
+}
+
+.tonight-tease {
+  color: var(--ink-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.tonight-story .story-audio {
+  max-width: 340px;
+  margin: 0.25rem auto 1rem;
+}
+
+.tonight-teaser {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+}
+
+.tonight-teaser strong { color: var(--gold-soft); font-weight: 600; }
+
+/* ---------- ritual entry ---------- */
+.ritual-entry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.ritual-entry svg { width: 16px; height: 16px; stroke: var(--gold-soft); }
+
+/* ---------- ritual overlay ---------- */
+.ritual-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 30%, rgba(37, 57, 91, 0.4), transparent 60%),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-mid) 55%, var(--indigo) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  transition: background 1.4s ease;
+}
+
+.ritual-overlay.is-goodnight {
+  background: linear-gradient(180deg, #05070f 0%, #0a0f24 60%, #0e1530 100%);
+}
+
+.ritual-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink-muted);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ritual-overlay.is-goodnight .ritual-close { display: none; }
+
+.ritual-stage {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.ritual-stage h2 {
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  color: var(--gold-soft);
+  margin: 0 0 1.5rem;
+}
+
+.ritual-picker {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ritual-picker button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink);
+  font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.ritual-picker button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(242, 200, 121, 0.55);
+  background: rgba(242, 200, 121, 0.1);
+}
+
+.ritual-progress-label { margin: 0 0 1rem; }
+
+.ritual-media {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 1.1rem;
+}
+
+.ritual-media .yt-facade { max-width: none; margin: 0; }
+.ritual-media .story-audio { max-width: none; }
+
+.ritual-story-title {
+  font-size: 1.2rem;
+  color: var(--gold-soft);
+  margin: 0 0 1.25rem;
+}
+
+.ritual-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.ritual-controls button {
+  padding: 0.6rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.ritual-next { border-color: rgba(242, 200, 121, 0.4); color: var(--gold-soft); }
+.ritual-controls button:hover { transform: translateY(-1px); }
+
+/* ---------- goodnight screen ---------- */
+.ritual-step--goodnight { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+
+.ritual-moon {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 0 20px rgba(242, 200, 121, 0.4));
+  transition: transform 1.6s ease, opacity 1.6s ease;
+}
+
+.ritual-overlay.is-goodnight .ritual-moon {
+  animation: moon-drift-up 1.8s ease forwards;
+}
+
+@keyframes moon-drift-up {
+  from { transform: translateY(0); opacity: 0.85; }
+  to { transform: translateY(-18px); opacity: 1; }
+}
+
+.ritual-goodnight-text {
+  font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+.ritual-done {
+  padding: 0.5rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ritual-overlay { transition: none; }
+  .ritual-overlay.is-goodnight .ritual-moon { animation: none; transform: translateY(-18px); opacity: 1; }
+}
+
+/* ---------- /for-grown-ups/ one-pager ---------- */
+.grownups-card h1 { margin-top: 0; }
+
+.grownups-card .lede {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.grownups-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.7rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.grownups-links .social-pill { justify-content: center; }
+
+@media (max-width: 480px) {
+  .ritual-picker button { width: 56px; height: 56px; }
+}

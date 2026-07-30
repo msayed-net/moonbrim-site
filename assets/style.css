@@ -517,7 +517,13 @@ html.lights-off .lights-off-overlay { opacity: 1; }
   padding: 1.5rem;
 }
 
-html.lights-off .lights-off-moon-wrap { opacity: 1; pointer-events: auto; }
+/* pointer-events stays none here (base rule above) even when lit up: this
+   wrap has no interactive children (just the moon glyph + progress bar +
+   caption), and its z-index (33) sits under the lantern/ambience toggles
+   (40) but over everything else on the page — an "auto" here silently
+   swallowed every click sitewide (nav, facade, ritual entry) the instant
+   lights-off turned on. */
+html.lights-off .lights-off-moon-wrap { opacity: 1; }
 
 .lights-off-moon-wrap .moon-phase { width: 68px; height: 68px; }
 .lights-off-moon-wrap p { color: var(--ink-muted); font-size: 0.85rem; margin: 0; max-width: 22rem; }
@@ -559,6 +565,17 @@ html.lights-off .yt-facade { opacity: 0.06; }
 }
 
 /* ---------- cloud-drift page transitions ---------- */
+/* An element with an animation-name naming keyframes that touch `transform`
+   becomes a containing block for every position:fixed descendant, and stays
+   one for as long as animation-name is set — even after a forwards-filled
+   animation has finished, since the browser doesn't drop the association.
+   Left as `forwards` here, this quietly turned <body> into the containing
+   block for EVERY fixed element site-wide (lantern/ambience toggles,
+   lights-off overlay, ritual overlay, sky-popup, .stars) — sizing/pinning
+   them to the full scrollable page instead of the viewport. assets/stars.js
+   clears body's inline `animation` once "page-enter" finishes (see its
+   "site shell" section) so this containing block doesn't outlive the intro
+   fade; .page-leaving's own animation below overrides that via !important. */
 body {
   opacity: 0;
   animation: page-enter 0.7s ease forwards;

@@ -352,4 +352,32 @@
       }, 180);
     });
   })();
+
+  // ---------------------------------------------------------------------
+  // 9. Clear the page-enter entrance animation once it finishes (see the
+  //    "cloud-drift page transitions" note in style.css). A forwards-filled
+  //    animation on a transform-affecting keyframe keeps naming that
+  //    animation on <body> forever, which makes <body> a containing block
+  //    for every position:fixed element on the page — breaking the lantern/
+  //    ambience toggles, lights-off overlay, ritual overlay and sky-popup
+  //    site-wide. Dropping the inline animation once it has visibly
+  //    completed frees that containing block again; .page-leaving's own
+  //    animation (declared !important) still applies later regardless.
+  //    No-op under reduced motion, where body never gets this animation.
+  // ---------------------------------------------------------------------
+  document.body.addEventListener(
+    "animationend",
+    function (e) {
+      if (e.target === document.body && e.animationName === "page-enter") {
+        // opacity must be pinned explicitly: style.css's base (non-animation)
+        // declaration for body is opacity:0 — the CSS Animations cascade
+        // tier is what was holding it at 1 (the "to" keyframe) via the
+        // forwards fill, so dropping animation alone without also setting
+        // opacity would snap the whole page back to invisible.
+        document.body.style.animation = "none";
+        document.body.style.opacity = "1";
+      }
+    },
+    { once: true }
+  );
 })();

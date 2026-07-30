@@ -54,7 +54,12 @@
 .ritual-entry svg { width: 16px; height: 16px; stroke: var(--gold-soft); }
 
 /* ---------- ritual overlay ---------- */
-.ritual-overlay {
+/* :not([hidden]) matters here: ritual.js toggles this via the `hidden` IDL
+   property, but an author rule always beats the UA's `[hidden]{display:none}`
+   regardless of specificity — an unconditional `display: flex` here meant
+   .hidden = true never actually hid the overlay, leaving the whole page
+   unclickable after the ritual was closed once. */
+.ritual-overlay:not([hidden]) {
   position: fixed;
   inset: 0;
   z-index: 60;
@@ -164,7 +169,12 @@
 .ritual-controls button:hover { transform: translateY(-1px); }
 
 /* ---------- goodnight screen ---------- */
-.ritual-step--goodnight { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+/* :not([hidden]) for the same reason as .ritual-overlay above — showStep()
+   sets the other two steps' `hidden` IDL property and relies on the UA
+   default to hide them, but this rule's unconditional `display: flex` beat
+   that default, so the goodnight step rendered during the picker/playing
+   steps too and pushed their content off-screen. */
+.ritual-step--goodnight:not([hidden]) { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
 
 .ritual-moon {
   width: 56px;

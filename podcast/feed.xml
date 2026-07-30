@@ -6,6 +6,10 @@
     <language>en</language>
     <description>Gentle, cinematic bedtime stories for little dreamers — the audio companion to the Moonbrim video series. New episodes as each story premieres on YouTube.</description>
     <itunes:author>Moonbrim</itunes:author>
+    <itunes:owner>
+      <itunes:name>Moonbrim</itunes:name>
+      <itunes:email>hello@moonbrim.com</itunes:email>
+    </itunes:owner>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://moonbrim.com/podcast/cover.jpg"/>
     <image>

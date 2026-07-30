@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Moonbrim Bedtime Stories</title>
+    <link>https://moonbrim.com</link>
+    <language>en</language>
+    <description>Gentle, cinematic bedtime stories for little dreamers — the audio companion to the Moonbrim video series. New episodes as each story premieres on YouTube.</description>
+    <itunes:author>Moonbrim</itunes:author>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://moonbrim.com/podcast/cover.jpg"/>
+    <image>
+      <url>https://moonbrim.com/podcast/cover.jpg</url>
+      <title>Moonbrim Bedtime Stories</title>
+      <link>https://moonbrim.com</link>
+    </image>
+    <itunes:category text="Kids &amp; Family">
+      <itunes:category text="Stories for Kids"/>
+    </itunes:category>
+
+  </channel>
+</rss>

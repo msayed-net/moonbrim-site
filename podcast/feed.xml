@@ -33,5 +33,18 @@
       <itunes:explicit>false</itunes:explicit>
       <itunes:image href="https://moonbrim.com/podcast/cover.jpg"/>
     </item>
+    <item>
+      <title>The Little Cloud Who Couldn't Rain ☁️ — a bedtime story about clouds for kids</title>
+      <description>The little cloud lives above a sun-parched valley and stretches herself thin to shade a single sunflower, until her tiny tears become a night of rain. This gentle kids story about clouds uses warm, painterly skies to calm little dreamers and the grown-ups reading with them.
+
+🌙 Moonbrim — moonbrim.com | @moonbrimstories</description>
+      <link>https://moonbrim.com/stories/little-cloud/</link>
+      <guid isPermaLink="false">004_2026-07-22_little-cloud</guid>
+      <pubDate>Thu, 30 Jul 2026 22:00:00 +0000</pubDate>
+      <enclosure url="https://moonbrim.com/podcast/episodes/little-cloud.m4a" length="1426512" type="audio/mp4"/>
+      <itunes:duration>1:03</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://moonbrim.com/podcast/cover.jpg"/>
+    </item>
   </channel>
 </rss>

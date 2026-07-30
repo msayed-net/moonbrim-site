@@ -16,6 +16,18 @@
     <itunes:category text="Kids &amp; Family">
       <itunes:category text="Stories for Kids"/>
     </itunes:category>
+    <item>
+      <title>Do preschoolers need a backpack? The Backpack Who Was Scared of School 🎒</title>
+      <description>The night before her first day, Mila finds her new red backpack trembling under the bed, its two brass-button eyes lit by a slender beam of moonlight. A gentle bedtime tale for little dreamers — and a cozy answer for parents wondering "do preschoolers need a backpack" as they pack love and courage together.
 
+🌙 Moonbrim — moonbrim.com | @moonbrimstories</description>
+      <link>https://moonbrim.com/stories/backpack-brave/</link>
+      <guid isPermaLink="false">005_2026-07-22_backpack-brave</guid>
+      <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
+      <enclosure url="https://moonbrim.com/podcast/episodes/backpack-brave.m4a" length="1382763" type="audio/mp4"/>
+      <itunes:duration>1:03</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://moonbrim.com/podcast/cover.jpg"/>
+    </item>
   </channel>
 </rss>

@@ -14,3 +14,15 @@
 # the deploy report for the two entries this shipped with still stale).
 /stories/*
   Cache-Control: public, max-age=300, s-maxage=300
+
+# /podcast/* binaries (episodes/*.m4a, cover.jpg) moved to R2
+# (media.moonbrim.com) 2026-07-31 — pipeline/podcast_gen.py no longer
+# writes them into this site clone at all, so a REMOVED file here has
+# nothing to purge against on the next deploy either, same edge-cache gap
+# as /stories/* above (up to 7 days stale by Pages' default). Added this
+# rule when removing the last two committed episodes/cover.jpg so any
+# stale moonbrim.com/podcast/* URL a subscriber's client cached before the
+# migration expires quickly instead of lingering — same 5-minute bound,
+# same rationale as /stories/* above.
+/podcast/*
+  Cache-Control: public, max-age=300, s-maxage=300

@@ -1,11 +1,21 @@
 {
-  "generated_at": "2026-08-02T10:25:21.091409+00:00",
+  "generated_at": "2026-08-02T14:41:47.808522+00:00",
   "stories": [
+    {
+      "slug": "elephant-mouse",
+      "title": "The Elephant Who Was Afraid of Small Things",
+      "tease": "The biggest baby at the river feared the smallest things. A gentle bedtime story about Juno, who could carry logs but jumped at beetles — and the dry season when watching the ground where small things live saved the whole herd. For every big kid with big feelings.",
+      "thumb": "/assets/logo.png",
+      "video_id": "oHZLsjV1sIk",
+      "story_url": "/stories/elephant-mouse/",
+      "podcast_url": null,
+      "premiered_at": "2026-08-02T14:41:47+00:00"
+    },
     {
       "slug": "little-root",
       "title": "The Root Who Worked in the Dark",
       "tease": "Everyone watched the little sprout. No one watched below. A gentle bedtime story about Root, who grew down in the dark while her twin drank the morning — and the burning July day when the invisible work saved everything. For every little one whose hard work goes unseen.",
-      "thumb": "https://media.moonbrim.com/stories/little-root/thumb.jpg",
+      "thumb": "/assets/logo.png",
       "video_id": "THvKNlMPW3E",
       "story_url": "/stories/little-root/",
       "podcast_url": "https://media.moonbrim.com/podcast/episodes/little-root.m4a",
@@ -15,7 +25,7 @@
       "slug": "thunder-shy",
       "title": "The Thunder Who Was Shy",
       "tease": "When Boom whispered hello, every window slammed shut. A gentle bedtime story about a little thundercloud who held his big voice in — until the night the river rose and the sleeping valley needed the loudest lullaby in the world. For every little one who has ever been told they are too much.",
-      "thumb": "https://media.moonbrim.com/stories/thunder-shy/thumb.jpg",
+      "thumb": "/assets/logo.png",
       "video_id": "0lr9phIdx3E",
       "story_url": "/stories/thunder-shy/",
       "podcast_url": "https://media.moonbrim.com/podcast/episodes/thunder-shy.m4a",
@@ -25,7 +35,7 @@
       "slug": "snail-lighthouse",
       "title": "The Snail Who Lit the Lighthouse",
       "tease": "The night the great light died, the slowest snail on the cliff began to climb. A gentle stormy-night bedtime story about Pearl, whose glistening trail — the thing she always hid — becomes the light that brings three boats home. For every little one who feels too small and too slow.",
-      "thumb": "https://media.moonbrim.com/stories/snail-lighthouse/thumb.jpg",
+      "thumb": "/assets/logo.png",
       "video_id": "p_s5I8sWGKg",
       "story_url": "/stories/snail-lighthouse/",
       "podcast_url": "https://media.moonbrim.com/podcast/episodes/snail-lighthouse.m4a",
@@ -35,7 +45,7 @@
       "slug": "moth-glow",
       "title": "The Moth Who Was Afraid of the Dark",
       "tease": "Every moth loves the dark — except Plume, who was born at noon and never let go of the light. A gentle bedtime story about the night she got lost between the lamps, and what her wings did when the moon finally found them. For every little one who sleeps with the light on.",
-      "thumb": "https://media.moonbrim.com/stories/moth-glow/thumb.jpg",
+      "thumb": "/assets/logo.png",
       "video_id": "rpn2e0tBkU0",
       "story_url": "/stories/moth-glow/",
       "podcast_url": "https://media.moonbrim.com/podcast/episodes/moth-glow.m4a",
@@ -45,7 +55,7 @@
       "slug": "backpack-brave",
       "title": "The Backpack Who Was Scared of School",
       "tease": "The night before the first day of school, Mila finds her brand new backpack hiding under the bed — trembling. A gentle bedtime story about first-day fear, and how comforting someone else is secretly how we get brave ourselves. For little dreamers starting something new, and the grown-ups walking them there.",
-      "thumb": "https://media.moonbrim.com/stories/backpack-brave/thumb.jpg",
+      "thumb": "/assets/logo.png",
       "video_id": "tfBHFGyh2Ig",
       "story_url": "/stories/backpack-brave/",
       "podcast_url": "https://media.moonbrim.com/podcast/episodes/backpack-brave.m4a",
@@ -55,7 +65,7 @@
       "slug": "little-cloud",
       "title": "The Little Cloud Who Could Not Rain",
       "tease": "In a valley that forgot the sound of rain, one small cloud is too little to help — until the night her heart grows heavier than any storm. A gentle summer bedtime story about feeling too small, for little dreamers and the grown-ups watching with them.",
-      "thumb": "https://media.moonbrim.com/stories/little-cloud/thumb.jpg",
+      "thumb": "/assets/logo.png",
       "video_id": "LExCy6g9D04",
       "story_url": "/stories/little-cloud/",
       "podcast_url": "https://media.moonbrim.com/podcast/episodes/little-cloud.m4a",
@@ -63,7 +73,7 @@
     }
   ],
   "teaser": {
-    "title": "The Elephant Who Was Afraid of Small Things",
-    "scheduled_for": "2026-08-02T12:00:00+00:00"
+    "title": "The Sock Who Lost His Twin",
+    "scheduled_for": "2026-08-02T22:00:00+00:00"
   }
 }

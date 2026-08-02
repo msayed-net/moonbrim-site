@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T10:24:03.920876+00:00",
+  "generated_at": "2026-08-02T10:25:21.091409+00:00",
   "stories": [
     {
       "slug": "little-root",
@@ -8,7 +8,7 @@
       "thumb": "https://media.moonbrim.com/stories/little-root/thumb.jpg",
       "video_id": "THvKNlMPW3E",
       "story_url": "/stories/little-root/",
-      "podcast_url": null,
+      "podcast_url": "https://media.moonbrim.com/podcast/episodes/little-root.m4a",
       "premiered_at": "2026-08-02T00:06:41+00:00"
     },
     {
@@ -18,7 +18,7 @@
       "thumb": "https://media.moonbrim.com/stories/thunder-shy/thumb.jpg",
       "video_id": "0lr9phIdx3E",
       "story_url": "/stories/thunder-shy/",
-      "podcast_url": null,
+      "podcast_url": "https://media.moonbrim.com/podcast/episodes/thunder-shy.m4a",
       "premiered_at": "2026-08-01T14:38:47+00:00"
     },
     {

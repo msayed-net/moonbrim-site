@@ -1,6 +1,36 @@
 {
-  "generated_at": "2026-07-31T21:39:32.678339+00:00",
+  "generated_at": "2026-08-02T10:24:03.920876+00:00",
   "stories": [
+    {
+      "slug": "little-root",
+      "title": "The Root Who Worked in the Dark",
+      "tease": "Everyone watched the little sprout. No one watched below. A gentle bedtime story about Root, who grew down in the dark while her twin drank the morning — and the burning July day when the invisible work saved everything. For every little one whose hard work goes unseen.",
+      "thumb": "https://media.moonbrim.com/stories/little-root/thumb.jpg",
+      "video_id": "THvKNlMPW3E",
+      "story_url": "/stories/little-root/",
+      "podcast_url": null,
+      "premiered_at": "2026-08-02T00:06:41+00:00"
+    },
+    {
+      "slug": "thunder-shy",
+      "title": "The Thunder Who Was Shy",
+      "tease": "When Boom whispered hello, every window slammed shut. A gentle bedtime story about a little thundercloud who held his big voice in — until the night the river rose and the sleeping valley needed the loudest lullaby in the world. For every little one who has ever been told they are too much.",
+      "thumb": "https://media.moonbrim.com/stories/thunder-shy/thumb.jpg",
+      "video_id": "0lr9phIdx3E",
+      "story_url": "/stories/thunder-shy/",
+      "podcast_url": null,
+      "premiered_at": "2026-08-01T14:38:47+00:00"
+    },
+    {
+      "slug": "snail-lighthouse",
+      "title": "The Snail Who Lit the Lighthouse",
+      "tease": "The night the great light died, the slowest snail on the cliff began to climb. A gentle stormy-night bedtime story about Pearl, whose glistening trail — the thing she always hid — becomes the light that brings three boats home. For every little one who feels too small and too slow.",
+      "thumb": "https://media.moonbrim.com/stories/snail-lighthouse/thumb.jpg",
+      "video_id": "p_s5I8sWGKg",
+      "story_url": "/stories/snail-lighthouse/",
+      "podcast_url": "https://media.moonbrim.com/podcast/episodes/snail-lighthouse.m4a",
+      "premiered_at": "2026-08-01T00:07:37+00:00"
+    },
     {
       "slug": "moth-glow",
       "title": "The Moth Who Was Afraid of the Dark",
@@ -8,7 +38,7 @@
       "thumb": "https://media.moonbrim.com/stories/moth-glow/thumb.jpg",
       "video_id": "rpn2e0tBkU0",
       "story_url": "/stories/moth-glow/",
-      "podcast_url": null,
+      "podcast_url": "https://media.moonbrim.com/podcast/episodes/moth-glow.m4a",
       "premiered_at": "2026-07-31T13:30:02+00:00"
     },
     {
@@ -33,7 +63,7 @@
     }
   ],
   "teaser": {
-    "title": "The Snail Who Lit the Lighthouse",
-    "scheduled_for": "2026-07-31T22:00:00+00:00"
+    "title": "The Elephant Who Was Afraid of Small Things",
+    "scheduled_for": "2026-08-02T12:00:00+00:00"
   }
 }

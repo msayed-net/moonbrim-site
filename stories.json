@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T18:05:04.853485+00:00",
+  "generated_at": "2026-08-03T00:06:54.835824+00:00",
   "stories": [
     {
       "slug": "elephant-mouse",
@@ -9,7 +9,17 @@
       "video_id": "oHZLsjV1sIk",
       "story_url": "/stories/elephant-mouse/",
       "podcast_url": null,
-      "premiered_at": "2026-08-02T18:05:04+00:00"
+      "premiered_at": "2026-08-03T00:06:54+00:00"
+    },
+    {
+      "slug": "sock-twin",
+      "title": "The Sock Who Lost His Twin",
+      "tease": "Two socks went into the washer. Only one came out. A gentle bedtime story about Blue, who searched the whole wilderness of the house for his missing twin — and what he found instead in the lost and found box. For every little one missing a friend who moved away.",
+      "thumb": "/assets/logo.png",
+      "video_id": "PoDR9RtKjAQ",
+      "story_url": "/stories/sock-twin/",
+      "podcast_url": null,
+      "premiered_at": "2026-08-03T00:06:54+00:00"
     },
     {
       "slug": "little-root",
@@ -73,7 +83,7 @@
     }
   ],
   "teaser": {
-    "title": "The Sock Who Lost His Twin",
-    "scheduled_for": "2026-08-02T22:00:00+00:00"
+    "title": "Poppy and the New Egg",
+    "scheduled_for": "2026-08-03T12:00:00+00:00"
   }
 }

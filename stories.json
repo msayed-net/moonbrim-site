@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-08-04T00:15:07.070998+00:00",
+  "generated_at": "2026-08-04T15:30:03.200465+00:00",
   "stories": [
+    {
+      "slug": "firefly-jar",
+      "title": "Lumen and the Kind Jar",
+      "tease": "On the night of falling stars, gentle hands caught the brightest firefly in the meadow. A tender bedtime story about a kind jar, a fading glow, and the moment a child understood what love had to do. For every little one learning that loving something means letting it shine where it belongs.",
+      "thumb": "/assets/logo.png",
+      "video_id": "oyNQgmX8nTE",
+      "story_url": "/stories/firefly-jar/",
+      "podcast_url": null,
+      "premiered_at": "2026-08-04T15:30:01+00:00"
+    },
     {
       "slug": "whale-song",
       "title": "The Whale Who Sang Too Deep",
@@ -8,7 +18,7 @@
       "thumb": "/assets/logo.png",
       "video_id": "I00JD55Dd44",
       "story_url": "/stories/whale-song/",
-      "podcast_url": null,
+      "podcast_url": "https://media.moonbrim.com/podcast/episodes/whale-song.m4a",
       "premiered_at": "2026-08-04T00:15:06+00:00"
     },
     {
@@ -103,7 +113,7 @@
     }
   ],
   "teaser": {
-    "title": "Lumen and the Kind Jar",
-    "scheduled_for": "2026-08-04T12:00:00+00:00"
+    "title": "The Owl Who Loved Mornings",
+    "scheduled_for": "2026-08-04T22:00:00+00:00"
   }
 }

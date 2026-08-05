@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-08-04T15:30:03.200465+00:00",
+  "generated_at": "2026-08-05T00:14:01.705769+00:00",
   "stories": [
+    {
+      "slug": "owl-dawn",
+      "title": "The Owl Who Loved Mornings",
+      "tease": "Every owl loves midnight. Sol kept yawning through it. A gentle bedtime story about a little owl whose eyes grew heavy when the moon grew tall — and the dawn the whole forest learned why someone different is someone needed. For every early bird in a family of night owls.",
+      "thumb": "/assets/logo.png",
+      "video_id": "x5lkNA2EsxU",
+      "story_url": "/stories/owl-dawn/",
+      "podcast_url": null,
+      "premiered_at": "2026-08-05T00:14:00+00:00"
+    },
     {
       "slug": "firefly-jar",
       "title": "Lumen and the Kind Jar",
@@ -8,7 +18,7 @@
       "thumb": "/assets/logo.png",
       "video_id": "oyNQgmX8nTE",
       "story_url": "/stories/firefly-jar/",
-      "podcast_url": null,
+      "podcast_url": "https://media.moonbrim.com/podcast/episodes/firefly-jar.m4a",
       "premiered_at": "2026-08-04T15:30:01+00:00"
     },
     {
@@ -113,7 +123,7 @@
     }
   ],
   "teaser": {
-    "title": "The Owl Who Loved Mornings",
-    "scheduled_for": "2026-08-04T22:00:00+00:00"
+    "title": "The Cactus Who Wanted a Hug",
+    "scheduled_for": "2026-08-05T12:00:00+00:00"
   }
 }
